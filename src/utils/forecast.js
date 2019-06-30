@@ -7,7 +7,7 @@ const forecast = (latitude, longtitude, callback) => {
         if(error) {
             callback('Невозможно подключиться к сервису погоды!', undefined);
         } else if (response.body.error) {
-            callback('Невозможно найти место.', undefined);
+            callback('Невозможно найти место. Введите другое место для поиска!', undefined);
         } else {
             callback(undefined, response.body.daily.data[0].summary + ' Сегодня ' + response.body.currently.temperature + ' градусов. Вероятность дождя ' + response.body.currently.precipProbability + '%.');
         }
